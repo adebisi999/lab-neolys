@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" font-family="Inter, DejaVu Sans, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#dc2626"/></marker></defs>
+<rect width="1100" height="760" fill="#ffffff"/>
+<text x="550" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a">Lab Néolys – Architecture réseau</text>
+<text x="550" y="70" text-anchor="middle" font-size="15" fill="#64748b">VirtualBox · OPNsense 26.7 · segmentation WAN / LAN / DMZ</text>
+<!-- PC hôte -->
+<rect x="20" y="90" width="1060" height="650" rx="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="40" y="116" font-size="14" fill="#64748b">PC hôte Windows · VirtualBox</text>
+<!-- Internet -->
+<rect x="450" y="130" width="200" height="56" rx="28" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="550" y="164" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Internet</text>
+<line x1="550" y1="186" x2="550" y2="232" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="562" y="215" font-size="13" fill="#475569">NAT VirtualBox</text>
+<!-- Firewall -->
+<rect x="400" y="236" width="300" height="118" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+<text x="550" y="266" text-anchor="middle" font-size="19" font-weight="700" fill="#9a3412">fw-neolys · OPNsense</text>
+<text x="550" y="292" text-anchor="middle" font-size="14" fill="#9a3412">WAN em0 : 10.0.2.15 (DHCP)</text>
+<text x="550" y="314" text-anchor="middle" font-size="14" fill="#9a3412">LAN em1 : 10.10.10.1/24</text>
+<text x="550" y="336" text-anchor="middle" font-size="14" fill="#9a3412">DMZ em2 : 10.10.20.1/24</text>
+<!-- lines to zones -->
+<path d="M470 354 L470 400 L280 400 L280 432" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M630 354 L630 400 L820 400 L820 432" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+<!-- LAN -->
+<rect x="60" y="436" width="440" height="270" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+<text x="84" y="468" font-size="18" font-weight="700" fill="#1e40af">LAN · 10.10.10.0/24</text>
+<text x="84" y="490" font-size="13" fill="#1e40af">Réseau interne « LAN-Neolys » · DHCP .100–.200</text>
+<rect x="84" y="512" width="190" height="84" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="179" y="542" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">win11-neolys</text>
+<text x="179" y="563" text-anchor="middle" font-size="13" fill="#475569">Windows 11 Pro</text>
+<text x="179" y="582" text-anchor="middle" font-size="13" fill="#475569">Poste client</text>
+<rect x="290" y="512" width="190" height="84" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="385" y="542" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">srv-lan</text>
+<text x="385" y="563" text-anchor="middle" font-size="13" fill="#475569">Debian 13</text>
+<text x="385" y="582" text-anchor="middle" font-size="13" fill="#475569">Serveur interne</text>
+<text x="84" y="636" font-size="13" fill="#1e40af">✔ Accès Internet</text>
+<text x="84" y="658" font-size="13" fill="#1e40af">✔ Administration du pare-feu (https://10.10.10.1)</text>
+<!-- DMZ -->
+<rect x="600" y="436" width="440" height="270" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+<text x="624" y="468" font-size="18" font-weight="700" fill="#991b1b">DMZ · 10.10.20.0/24</text>
+<text x="624" y="490" font-size="13" fill="#991b1b">Réseau interne « DMZ-Neolys » · DHCP .100–.200</text>
+<rect x="624" y="512" width="190" height="84" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+<text x="719" y="542" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">srv-dmz</text>
+<text x="719" y="563" text-anchor="middle" font-size="13" fill="#475569">Debian 13</text>
+<text x="719" y="582" text-anchor="middle" font-size="13" fill="#475569">Serveur exposé</text>
+<text x="624" y="636" font-size="13" fill="#991b1b">✔ Accès Internet (règle 4)</text>
+<text x="624" y="658" font-size="13" fill="#991b1b">✖ Vers le LAN : bloqué (règle 3)</text>
+<text x="624" y="680" font-size="13" fill="#991b1b">✖ Admin pare-feu 443/22 : bloqué (règles 1-2)</text>
+<!-- blocked arrow DMZ -> LAN -->
+<line x1="622" y1="554" x2="504" y2="554" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#r)"/>
+<circle cx="552" cy="554" r="15" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+<path d="M545 547 L559 561 M559 547 L545 561" stroke="#dc2626" stroke-width="3"/>
+<text x="550" y="732" text-anchor="middle" font-size="13" fill="#64748b">Politique par défaut : tout est refusé, sauf ce qui est explicitement autorisé · Règles lues de haut en bas, première correspondance appliquée</text>
+</svg>
